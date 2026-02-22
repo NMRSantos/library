@@ -1,0 +1,8 @@
+.grid {
+    display: grid;
+    grid-template: 50px / 100px 100px 100px 100px 100px;
+}
+
+.grid > div {
+    border: 1px solid black;
+}

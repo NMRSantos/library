@@ -16,8 +16,17 @@ function Book(name, author, pages, status, id) {
 
 function addBookToLibrary() {
     const book = new Book(name, author, pages, status, id);
-    console.log(book)
+    console.log(book);
 
-    myLibrary.push = book
+    myLibrary.push(book);
     console.log(myLibrary)
+};
+
+function render() {
+    const grid = document.querySelector(".grid");
+    for(const property in myLibrary[0]) {
+        const cell = document.createElement("div");
+        grid.appendChild(cell);
+        cell.textContent = `${myLibrary[0][property]}`;
+    };
 };
