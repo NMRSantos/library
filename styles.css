@@ -1,6 +1,6 @@
 .grid {
     display: grid;
-    grid-template: 50px / 100px 100px 100px 100px 100px;
+    grid-template: 50px / 100px 100px 100px 100px 350px;
 }
 
 .grid > div {
