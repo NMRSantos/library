@@ -1,8 +1,8 @@
-.grid {
+.bookRow {
     display: grid;
-    grid-template: 50px / 100px 100px 100px 100px 350px;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px auto;
 }
 
-.grid > div {
-    border: 1px solid black;
+.cell {
+        border: 1px solid black;
 }

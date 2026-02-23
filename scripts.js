@@ -1,11 +1,5 @@
 const myLibrary = [];
 
-// const name = alert("book name");
-// const author = alert("Hungus Chungus");
-// const pages = "67";
-// const status = "It Exists";
-// const id = crypto.randomUUID();
-
 function Book(name, author, pages, status, id) {
     this.name = name;
     this.author = author;
@@ -24,6 +18,7 @@ function addBookToLibrary(name, author, pages, status, id) {
 
 
 const grid = document.querySelector(".grid");
+
 document.getElementById('button').addEventListener('click', function () {
     const name = document.getElementById('name').value;
     const author = document.getElementById('author').value;
@@ -32,7 +27,10 @@ document.getElementById('button').addEventListener('click', function () {
     function generateId() {
         return crypto.randomUUID();
     };
+
     let id = generateId();
+
+    
     addBookToLibrary(name, author, pages, status, id);
     grid.innerHTML = "";
     render();
@@ -40,10 +38,39 @@ document.getElementById('button').addEventListener('click', function () {
 
 function render() {
     for (let i = 0; i <= myLibrary.length - 1; i++) {
+        const bookRow = document.createElement("div");
+        bookRow.className = "bookRow";
         for(const property in myLibrary[i]) {
             const cell = document.createElement("div");
-            grid.appendChild(cell);
+            cell.className = "cell"
             cell.textContent = `${myLibrary[i][property]}`;
+            bookRow.appendChild(cell);
         };
+
+        const remove = document.createElement("button");
+        remove.textContent = "Delete";
+        remove.addEventListener('click', function() {
+            myLibrary.splice(i,1);
+            grid.innerHTML = "";
+            render();
+        });
+
+        const changeStatus = document.createElement("button");
+        changeStatus.textContent = "Change Status";
+        changeStatus.addEventListener('click', function() {
+            if(myLibrary[i].status === "Read") {
+                myLibrary[i].status = "Not Read"
+                grid.innerHTML = "";
+                render();
+            } else {
+                myLibrary[i].status = "Read"
+                grid.innerHTML = "";
+                render();
+            };
+        })
+
+        grid.appendChild(bookRow);
+        bookRow.appendChild(remove);
+        bookRow.appendChild(changeStatus);
     };
 };
