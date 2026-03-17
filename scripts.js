@@ -20,9 +20,11 @@ function addBookToLibrary(name, author, pages, status, id) {
 
 
 const grid = document.querySelector(".grid");
+const form = document.getElementById('form');
 
-document.getElementById('button').addEventListener('click', function () {
+form.addEventListener('submit', function (event) {
     const name = document.getElementById('name').value;
+    const nameTest = document.getElementById('name');
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
     const status = document.getElementById('status').value;
@@ -33,9 +35,15 @@ document.getElementById('button').addEventListener('click', function () {
     let id = generateId();
 
     
-    addBookToLibrary(name, author, pages, status, id);
-    grid.innerHTML = "";
-    render();
+    if (nameTest.validity.valueMissing) {
+        nameTest.setCustomValidity("Please enter a book name")
+        nameTest.reportValidity();
+        event.preventDefault();
+    } else {
+        addBookToLibrary(name, author, pages, status, id);
+        grid.innerHTML = "";
+        render();
+    };
 });
 
 function render() {

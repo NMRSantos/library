@@ -8,27 +8,26 @@
 </head>
 <body>
 
-    <div class="display">
-    <label for="name">Book name:</label>
-        <input type="text" name="name" id="name">
-
-    <label for="author">Author name:</label>
-        <input type="text" name="author" id="author">
-
-    <label for="pages">Number of pages:</label>
-        <input type="number" name="pages" id="pages">
-
-        <label for="status">Status:</label>
-            <select name="status" id="status">
-                <option value="Not Read">Not Read</option>
-                <option value="Read">Read</option>
-            </select>
-            
-            <button id="button">Add</button>
-    </div>
-
-    <div class="grid">
-    </div>
+    <form id="form" novalidate>
+        <div class="display">
+        <label for="name">Book name:</label>
+            <input type="text" name="name" id="name" required>
+        <label for="author">Author name:</label>
+            <input type="text" name="author" id="author">
+        <label for="pages">Number of pages:</label>
+            <input type="number" name="pages" id="pages">
+            <label for="status">Status:</label>
+                <select name="status" id="status">
+                    <option value="Not Read">Not Read</option>
+                    <option value="Read">Read</option>
+                </select>
+        
+                <button type="submit" id="button">Add</button>
+        </div>
+    </form>
+        <div class="grid">
+        </div>
+        
     
     <script src="scripts.js"></script>
 </body>
